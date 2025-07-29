@@ -57,7 +57,7 @@ class PayPal:
                 payload = data["error_description"]
                 raise AuthorizationError(message, payload)
             message = data["message"]
-            payload = data["details"]
+            payload = data
             if status_code == 400:
                 raise ValidationError(message, payload)
             raise FailedRequest(message, status_code, payload)
